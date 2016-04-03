@@ -1,14 +1,2 @@
-
-<% if current_user != nil %>
-  <div class="row">
-    <aside class="col-md-4">
-      <%= render 'shared/user_profile' if current_user != nil %>
-    </aside>
-    <div class="col-md-8">
-      <%= link_to "Words", user_words_path(current_user), class: "action-button shadow animate blue"  %>
-      <%= link_to "Lesson", categories_path , class: "action-button shadow animate blue" %>  
-    </div>
-  </div>
-<% elsif %>
-  <h2> Please log in to use our website: <%= link_to 'Log in', login_path %> </h2>
-<% end %>
+<h1>StaticPages#home</h1>
+<p>Find me in app/views/static_pages/home.html.erb</p>
