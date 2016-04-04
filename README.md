@@ -8,3 +8,5 @@ To clone:
 3) rake db:create
 4) rake db:migrate
 5) rails s 
+
+Thắng: Generate Static Pages, filling layout, generate Users.
