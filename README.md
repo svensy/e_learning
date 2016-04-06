@@ -9,4 +9,4 @@ To clone:
 4) rake db:migrate
 5) rails s 
 
-Thắng: Generate Static Pages, filling layout, generate Users.
+Thắng: Generate Static Pages, filling layout, generate Users, signup, login, logout.
