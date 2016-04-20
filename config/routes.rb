@@ -11,5 +11,19 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  resources :users
+  resources :users do
+    resources :words
+    resources :lessons
+  end
+  
+  resources :categories
+  
+  namespace :admin do
+    DashboardManifest::DASHBOARDS.each do |dashboard_resource|
+      resources dashboard_resource
+    end
+
+    root controller: DashboardManifest::ROOT_DASHBOARD, action: :index
+  end
+
 end
