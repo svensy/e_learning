@@ -98,10 +98,34 @@ p {
 
 /* header */
 
-.header {
-    background-color: #22A7F0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);  
-
+.header.navbar-inverse {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    border-color: #fff;
+    padding: 10px 0;
+    ul.navbar-right{
+      li{
+        a{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            &:hover{
+              color: rgb(93, 190, 89);
+            }
+        }
+      }
+      li.login{
+          background-color: rgb(93, 190, 89);
+          border-radius: 5px;
+          a{
+            &:hover{
+              color: #fff;
+            }
+          }
+          
+      }
+    }
 }
 
 
@@ -114,7 +138,7 @@ p {
 .navbar-inverse .navbar-nav > .open > a:hover, 
 .navbar-inverse .navbar-nav > .open > a:focus {
     background-color: #22A7F0;
-    color: #fff;
+    color: rgb(93, 190, 89);
 }
 
 
