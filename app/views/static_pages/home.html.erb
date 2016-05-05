@@ -1,8 +1,41 @@
 <div class="content-wrap">
-	<%= link_to image_tag("sl1.jpg", alt: "Banner Image"),'#' %>
-	<div class="center jumbotron">
-	  <%= link_to image_tag("logo-banner-search.png", alt: "Banner Logo"),'#' %>
-	  <h1>Getting started with <span>EE-learning</span></h1>
-	  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-	</div>
+	<% if current_user != nil %>
+		<%= link_to image_tag("sl2.jpg", alt: "Banner Image"),'#' %>
+		<div class="center jumbotron">
+		  	<div class="row">
+			    <div class="col-md-12">
+			      <%= render 'shared/user_profile' if current_user != nil %>
+			    </div>
+		  	</div>
+		  	<div class="row">
+		    	<div class="col-md-6 course">
+		    		<div class="course-image">
+		    			<%= link_to image_tag("word.jpg", alt: "Course Image"),user_words_path(current_user) %>
+		    			<div>
+		    				<%= link_to image_tag("book.png", alt: "Course icon"),user_words_path(current_user),class:"course-icon" %>
+		    			</div>
+		    		</div>
+		      		<div class="course-title">
+		      			<%= link_to "Words", user_words_path(current_user) %>
+		      		</div>	
+		      	</div>
+		      	<div class="col-md-6 course">
+		      		<div class="course-image">
+		      			<%= link_to image_tag("lesson.jpg", alt: "Banner Image"),categories_path %>
+		      			<div>
+		    				<%= link_to image_tag("books-stack.png", alt: "Course icon"),user_words_path(current_user),class:"course-icon" %>
+		    			</div>
+		      		</div>
+			      	<div class="course-title"><%= link_to "Lesson", categories_path  %></div>
+			    </div>  
+		    </div>
+	    </div>
+	<% elsif %>
+		<%= link_to image_tag("sl1.jpg", alt: "Banner Image"),'#' %>
+		<div class="center jumbotron">
+			<%= link_to image_tag("logo-banner-search.png", alt: "Banner Logo"),'#' %>
+			<h1>Getting started with <span>EE-learning</span></h1>
+			<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+		</div>
+	<% end %>
 </div>
