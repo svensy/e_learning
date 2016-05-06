@@ -421,10 +421,18 @@ input {
         img{
           margin-top: 0px;
           margin-bottom: 40px;
+          &:hover{
+
+          }
         }
       }
       .course-image{
         position: relative;
+        &:hover{
+          .course-icon{
+            transform: translateY(-120px);
+          }
+        }
         .course-icon{
           position: absolute;
           bottom: 15px;
@@ -433,6 +441,8 @@ input {
           background: #64bc62;
           left: 40%;
           border-radius: 15px;
+          -webkit-transition: all 0.4s ease-in-out 0s; /* Safari */
+          transition: all 0.4s ease-in-out 0s;
           img{
             margin:0; 
           }
