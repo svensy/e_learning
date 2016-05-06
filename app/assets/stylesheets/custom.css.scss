@@ -104,7 +104,10 @@ p {
     border-color: #fff;
     padding: 10px 0;
     ul.navbar-right{
+      margin: 0 -15px;
+      float: right;
       li{
+        display: inline-block;
         a{
             padding-top: 10px;
             padding-bottom: 10px;
