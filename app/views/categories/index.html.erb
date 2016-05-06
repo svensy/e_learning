@@ -1,0 +1,25 @@
+
+
+<div class="row lesson">
+  
+  <div class="col-md-7 col-md-offset-3">
+    <% @categories.each do |category| %>
+      <div class="card">
+        <div class= "row">
+          <div class="col-md-12 ">
+              <div class="category-name"> <%= category.name %> </div> 
+              <div class="category-words-container word" > 
+                <% category.words.all.each do |word| %>
+                  <span > <%= word.content  %> </span>
+                <% end %> 
+              </div>
+             <%= link_to "Create Lesson", user_lessons_path(current_user, :lesson => {:category_id => category.id, :user_id => current_user.id}), method: :post, 
+              class: "btn", style: "float: right" if current_user != nil %> 
+              <br style="clear: both;">
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
