@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :categories
+resources :lessons
+resources :users
+resources :words
+
+    root to: "categories#index"
+  end
+
   get 'sessions/new'
 
   root             'static_pages#home'
