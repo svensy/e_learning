@@ -16,7 +16,7 @@ class WordDashboard < Administrate::BaseDashboard
     content: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-  }.freeze
+  }
 
   # COLLECTION_ATTRIBUTES
   # an array of attributes that will be displayed on the model's index page.
@@ -28,20 +28,11 @@ class WordDashboard < Administrate::BaseDashboard
     :lesson_words,
     :lessons,
     :word_answers,
-  ].freeze
+  ]
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [
-    :category,
-    :lesson_words,
-    :lessons,
-    :word_answers,
-    :id,
-    :content,
-    :created_at,
-    :updated_at,
-  ].freeze
+  SHOW_PAGE_ATTRIBUTES = ATTRIBUTE_TYPES.keys
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
@@ -52,7 +43,7 @@ class WordDashboard < Administrate::BaseDashboard
     :lessons,
     :word_answers,
     :content,
-  ].freeze
+  ]
 
   # Overwrite this method to customize how words are displayed
   # across all pages of the admin dashboard.

@@ -13,7 +13,7 @@ class CategoryDashboard < Administrate::BaseDashboard
     name: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-  }.freeze
+  }
 
   # COLLECTION_ATTRIBUTES
   # an array of attributes that will be displayed on the model's index page.
@@ -25,17 +25,11 @@ class CategoryDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :created_at,
-  ].freeze
+  ]
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [
-    :words,
-    :id,
-    :name,
-    :created_at,
-    :updated_at,
-  ].freeze
+  SHOW_PAGE_ATTRIBUTES = ATTRIBUTE_TYPES.keys
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
@@ -43,7 +37,7 @@ class CategoryDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :words,
     :name,
-  ].freeze
+  ]
 
   # Overwrite this method to customize how categories are displayed
   # across all pages of the admin dashboard.

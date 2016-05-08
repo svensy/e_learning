@@ -4,18 +4,27 @@
 #
 # If you want to add pagination or other controller-level concerns,
 # you're free to overwrite the RESTful controller actions.
-module Admin
-  class ApplicationController < Administrate::ApplicationController
-    before_filter :authenticate_admin
+class Admin::ApplicationController < Administrate::ApplicationController
+  include SessionsHelper
 
-    def authenticate_admin
-      # TODO Add authentication logic here.
+  before_filter :authenticate_admin
+  before_filter :admin_list,only: [:authenticate_admin]
+
+  def authenticate_admin
+    admin = current_user;
+    if admin.nil? || !admin_list.include?(admin.email)
+      flash[:danger] = "You dont have permission to go this page. Please login as admin!";
+      redirect_to login_url
     end
-
-    # Override this value to specify the number of elements to display at a time
-    # on index pages. Defaults to 20.
-    # def records_per_page
-    #   params[:per_page] || 20
-    # end
   end
+
+  def admin_list
+    list = ['ngotungson58@gmail.com', 'caominhson58@gmail.com'] 
+  end
+
+  # Override this value to specify the number of elements to display at a time
+  # on index pages. Defaults to 20.
+  # def records_per_page
+  #   params[:per_page] || 20
+  # end
 end
