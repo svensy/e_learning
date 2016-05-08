@@ -526,3 +526,19 @@ input {
 .row.mar-top{
   margin-top: 50px;
 }
+
+.filter-pdf{
+  input.btn-info{
+    color:#fff;
+    background-color: #64bc62;
+    border-color: #64bc62;
+    outline: none;
+    &:hover{
+      color: #777;
+    }
+  }
+}
+
+.card.word{
+  background-color:#64bc62;
+}
