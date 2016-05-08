@@ -1,0 +1,55 @@
+
+<div class="row">
+
+  <div class="col-md-9 col-md-offset-2">   
+      <div class="filter-pdf">
+      
+      <%= form_tag( user_words_path(current_user) , method: 'get') do %>
+        <div>
+            <span> Category: <%= select_tag 'category_id', options_for_select(@categories.collect {|c| [c.name, c.id]}), class: 'category-select-box' %> </span>
+            <% ['learned', 'not_learned', 'all'].each do |option| %>
+              <%= radio_button_tag 'learn', option %>
+              <%= option %>
+            <% end %>
+         </div>
+      
+         <div class="filter-pdf">
+          <%= submit_tag "Filter", class: "btn btn-info" %>
+          <%= submit_tag "PDF", class: "btn btn-info" %>
+        </div>
+      <% end %>
+      </div>
+      <br>
+      <br> 
+      <div class="card word" style="background-color: #36D7B7;">   
+        <div class="row list-group" style="margin: 10px;">
+          <% @words.each do |word| %>
+            <div class="col-md-6 list-group-item">
+              <div class="row">
+                <div class="col-md-6">
+                   <%= word.content %> 
+                </div>
+                <div class="col-md-6">
+                   <% word.word_answers.each do |ws| %>
+                       <%= ws.content if ws.correct == true %> 
+                   <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+  
+  </div>
+</div>
+
+
+<%= content_tag "div", id: "data-category", data: {category: params[:category_id] } do %>
+<% end %>
+<%= content_tag "div", id: "data-learn", data: {learn: params[:learn] } do %>
+<% end %>
+
+<%= javascript_include_tag 'words/index' %> 
+
+
+
