@@ -242,7 +242,18 @@ aside {
 }
 
 .gravatar_edit {
-  margin-top: 15px;
+  margin-top: 5px;
+  a{
+    position: relative;
+    top: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 700;
+    &:hover{
+      color: #64bc62;
+    }
+  }
 }
 
 /* forms */
@@ -512,6 +523,6 @@ input {
   opacity: 0.6;
 }
 
-.row.lesson{
+.row.mar-top{
   margin-top: 50px;
 }
